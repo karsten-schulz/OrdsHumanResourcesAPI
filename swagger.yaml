@@ -1,15 +1,15 @@
 swagger: '2.0'
 info:
-  title: ORDS generated API for EMPLOYEES
+  title: ORDS generated API for Human Resources
   version: 1.0.0
 host: 129.152.129.171
-basePath: /ords/pdb1/hr/employees
+basePath: /
 schemes:
   - https
 produces:
   - application/json
 paths:
-  /:
+  /employees:
     get:
       produces:
         - application/json
@@ -34,7 +34,7 @@ paths:
           required: true
           schema:
             $ref: '#/definitions/PAYLOAD1'
-  '/{id}':
+  '/employees/{id}':
     get:
       produces:
         - application/json
@@ -88,7 +88,96 @@ paths:
           type: string
           description: implicit
           pattern: '^[^/]+$'
+  /departments:
+    get:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: output of the endpoint
+          schema:
+            type: object
+            properties: {}
+    post:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: output of the endpoint
+          schema:
+            type: object
+            properties: {}
+      parameters:
+        - name: payload
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/PAYLOAD1'
+  '/departments/{id}':
+    get:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: output of the endpoint
+          schema:
+            type: object
+            properties: {}
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: implicit
+          pattern: '^[^/]+$'
+    put:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: output of the endpoint
+          schema:
+            type: object
+            properties: {}
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: implicit
+          pattern: '^[^/]+$'
+        - name: payload
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/PAYLOAD2'
+    delete:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: output of the endpoint
+          schema:
+            type: object
+            properties: {}
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: implicit
+          pattern: '^[^/]+$'
 definitions:
+  PAYLOAD2:
+    properties:
+      DEPARTMENT_ID:
+        $ref: '#/definitions/NUMBER'
+      DEPARTMENT_NAME:
+        $ref: '#/definitions/VARCHAR2'
+      MANAGER_ID:
+        $ref: '#/definitions/NUMBER'
+      LOCATION_ID:
+        $ref: '#/definitions/NUMBER'
   DATE:
     type: string
     pattern: >-
