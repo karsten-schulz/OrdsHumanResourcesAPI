@@ -1,0 +1,123 @@
+swagger: '2.0'
+info:
+  title: ORDS generated API for EMPLOYEES
+  version: 1.0.0
+host: 129.152.129.171
+basePath: /ords/pdb1/hr/employees
+schemes:
+  - https
+produces:
+  - application/json
+paths:
+  /:
+    get:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: output of the endpoint
+          schema:
+            type: object
+            properties: {}
+    post:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: output of the endpoint
+          schema:
+            type: object
+            properties: {}
+      parameters:
+        - name: payload
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/PAYLOAD1'
+  '/{id}':
+    get:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: output of the endpoint
+          schema:
+            type: object
+            properties: {}
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: implicit
+          pattern: '^[^/]+$'
+    put:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: output of the endpoint
+          schema:
+            type: object
+            properties: {}
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: implicit
+          pattern: '^[^/]+$'
+        - name: payload
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/PAYLOAD1'
+    delete:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: output of the endpoint
+          schema:
+            type: object
+            properties: {}
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: implicit
+          pattern: '^[^/]+$'
+definitions:
+  DATE:
+    type: string
+    pattern: >-
+      ^\d{4}-[01]\d-[0123]\dT[012]\d:[0-5]\d:[0-5]\d(.\d+)?(Z|([-+][012]\d:[0-5]\d))$
+  NUMBER:
+    type: number
+  VARCHAR2:
+    type: string
+  PAYLOAD1:
+    properties:
+      EMPLOYEE_ID:
+        $ref: '#/definitions/NUMBER'
+      FIRST_NAME:
+        $ref: '#/definitions/VARCHAR2'
+      LAST_NAME:
+        $ref: '#/definitions/VARCHAR2'
+      EMAIL:
+        $ref: '#/definitions/VARCHAR2'
+      PHONE_NUMBER:
+        $ref: '#/definitions/VARCHAR2'
+      HIRE_DATE:
+        $ref: '#/definitions/DATE'
+      JOB_ID:
+        $ref: '#/definitions/VARCHAR2'
+      SALARY:
+        $ref: '#/definitions/NUMBER'
+      COMMISSION_PCT:
+        $ref: '#/definitions/NUMBER'
+      MANAGER_ID:
+        $ref: '#/definitions/NUMBER'
+      DEPARTMENT_ID:
+        $ref: '#/definitions/NUMBER'
